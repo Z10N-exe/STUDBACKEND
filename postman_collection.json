@@ -1,0 +1,191 @@
+{
+  "info": {
+    "name": "School Management System API",
+    "description": "API collection for School Management System",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/health",
+          "host": ["{{base_url}}"],
+          "path": ["health"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Student",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"full_name\": \"John Doe\",\n  \"age\": 15,\n  \"class\": \"10A\",\n  \"gender\": \"Male\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/students",
+          "host": ["{{base_url}}"],
+          "path": ["api", "students"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "List All Students",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/students?skip=0&limit=10",
+          "host": ["{{base_url}}"],
+          "path": ["api", "students"],
+          "query": [
+            {
+              "key": "skip",
+              "value": "0"
+            },
+            {
+              "key": "limit",
+              "value": "10"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "List Students - Filter by Class",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/students?class=10A",
+          "host": ["{{base_url}}"],
+          "path": ["api", "students"],
+          "query": [
+            {
+              "key": "class",
+              "value": "10A"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "List Students - Sort by Age",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/students?sort_by=age&sort_order=asc",
+          "host": ["{{base_url}}"],
+          "path": ["api", "students"],
+          "query": [
+            {
+              "key": "sort_by",
+              "value": "age"
+            },
+            {
+              "key": "sort_order",
+              "value": "asc"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Student by ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/students/{{student_id}}",
+          "host": ["{{base_url}}"],
+          "path": ["api", "students", "{{student_id}}"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update Student (Full)",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"full_name\": \"Jane Doe\",\n  \"age\": 16,\n  \"class\": \"10B\",\n  \"gender\": \"Female\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/students/{{student_id}}",
+          "host": ["{{base_url}}"],
+          "path": ["api", "students", "{{student_id}}"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update Student (Partial)",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"age\": 17\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/students/{{student_id}}",
+          "host": ["{{base_url}}"],
+          "path": ["api", "students", "{{student_id}}"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Student",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/students/{{student_id}}",
+          "host": ["{{base_url}}"],
+          "path": ["api", "students", "{{student_id}}"]
+        }
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8000",
+      "type": "string"
+    },
+    {
+      "key": "student_id",
+      "value": "550e8400-e29b-41d4-a716-446655440000",
+      "type": "string"
+    }
+  ]
+}
